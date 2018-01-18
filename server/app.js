@@ -42,6 +42,14 @@ app.get('/ip', (req, res) => {
   res.send(ip.address());
 })
 
+app.get('/foo', (req, res) => {
+  res.send(req.originalUrl);
+})
+
+app.get('/bar', (req, res) => {
+  res.send(req.originalUrl);
+})
+
 // start server after all db available
 redis.on('connect', () => {
   logger.info('Redis connection established')
